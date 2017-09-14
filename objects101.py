@@ -12,3 +12,10 @@ class Player(object):
 
 player1 = Player('Miguel Almiron', 'midfield')
 print player1
+print player1.position
+print player1.team
+
+player2 = Player("Brad Guzah"), "goalie")
+print player2.name
+print player2.position
+print player2.team
