@@ -9,7 +9,7 @@ class Character(object):
         self.name = '<undefined>'
         self.health = 10
         self.power = 5
-        self.coins = 20
+        self.rubys = 20
 
     def alive(self):
         return self.health > 0
@@ -17,7 +17,9 @@ class Character(object):
     def attack(self, enemy):
         if not self.alive():
             return
-        print "%s attacks %s" % (self.name, enemy.name)
+        print
+
+        "%s attacks %s" % (self.name, enemy.name)
         enemy.receive_damage(self.power)
         time.sleep(1.5)
 
@@ -35,7 +37,7 @@ class Hero(Character):
         self.name = 'hero'
         self.health = 10
         self.power = 5
-        self.coins = 20
+        self.rubys = 20
 
     def restore(self):
         self.health = 10
@@ -43,7 +45,7 @@ class Hero(Character):
         time.sleep(1)
 
     def buy(self, item):
-        self.coins -= item.cost
+        self.rubys -= item.cost
         item.apply(hero)
 
 class Goblin(Character):
@@ -123,9 +125,34 @@ class Shopping(object):
     def do_shopping(self, hero):
         while True:
             print "====================="
-            print "Welcome to the store!"
+            print "Welcome to the Super Store, Where Only HEROS shop!
+     .---_   _--._---.__
+    /   _ \/\     \     ''-.
+   |   / \ | \      '.     '.     .'¯|
+   |  / __\|  '.      '.     '    \ _|
+   | | |_  .-'_'.      .    _.-|  $$
+   | | \U\\ .¯U' '..    _.-' .'  $$
+    \| /¯ /  ¯¯     ' |'   .'|   $$
+      \| '-          '|  .'  |  $$
+        \ --         /.      \ $$
+         \          .'   __   |$$
+          '.   ___.'  | ////¯¯''.._
+            ¯|¯      _'.//_ ..   ||||
+       _ .-¯|\|----¯¯¯  |\|¯¯|---||||
+    .-¯.'  |  X      .''  \  |       ''.
+   '    ''..      .''__... |/           '.
+   | |    .|   .' .-   / \|              |
+  /  '      '.'...'   /  /               |
+ /_ |        '       /  /     |          |
+  |¯|                '  '     \| __.-.___.'
+  | |              /  /        |\         \
+  | .             /  /           |        .
+  | '            '  '            |        '
+   \ .        /  /               '        |
+   /  '      '  '                 |       \
+  /   '                           |        |"
             print "====================="
-            print "You have %d coins." % hero.coins
+            print "You have %d rubys." % hero.rubys
             print "What do you want to do?"
             for i in xrange(len(Shopping.items)):
                 item = Shopping.items[i]
